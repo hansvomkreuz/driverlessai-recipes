@@ -54,7 +54,7 @@ Custom recipes are Python code snippets that can be uploaded into Driverless AI 
  [1.8.2](https://github.com/h2oai/driverlessai-recipes/tree/rel-1.8.2)
  [1.8.3](https://github.com/h2oai/driverlessai-recipes/tree/rel-1.8.3)
  [1.8.4](https://github.com/h2oai/driverlessai-recipes/tree/rel-1.8.4)
-### Count: 139
+### Count: 140
 * [DATA](./data)
   * [GroupAgg.py](./data/GroupAgg.py) [Aggregation features on numeric columns across multiple categorical columns]
   * [KMeansClustering.py](./data/KMeansClustering.py) [ Data Recipe to perform KMeans Clustering on a dataset. __version__ = 0.1authored by @goldentom42 (Olivier Grellier)modified by @shivam5992  (Shivam Bansal)Note:Users can define (optional) user inputs: number of clusters, columns to ignore, columns to include. (see section : Optional User Inputs)]
@@ -70,6 +70,8 @@ Custom recipes are Python code snippets that can be uploaded into Driverless AI 
   * [seattle_rain_modify.py](./data/seattle_rain_modify.py) [Transpose the Monthly Seattle Rain Inches data set for Time Series use cases]
   * [seattle_rain_upload.py](./data/seattle_rain_upload.py) [Upload Monthly Seattle Rain Inches data set from data provided by the City of Seattle]
   * [wav2txt.py](./data/wav2txt.py) [Speech to text using Azure Cognitive ServicesSettings for this recipe:Assing AZURE_SERVICE_KEY and AZURE_SERVICE_REGION global variable prior to usageAssign WAV_COLNAME global variable with proper column name from your dataset.This colums should contain absolute paths to .wav file which needs to be converted to text.]
+  * [DATABASES](./data/databases)
+    * [create_dataset_from_mongodb_collection.py](./data/databases/create_dataset_from_mongodb_collection.py) [Create dataset from MonogDB]
 * [HOW_TO_WRITE_A_RECIPE](./how_to_write_a_recipe)
   * [ExampleLogTransformer.py](./how_to_write_a_recipe/ExampleLogTransformer.py) [please add description]
 * [MODELS](./models)
@@ -221,8 +223,8 @@ Custom recipes are Python code snippets that can be uploaded into Driverless AI 
     * [auto_arima_forecast.py](./transformers/timeseries/auto_arima_forecast.py) [Auto ARIMA transformer is a time series transformer that predicts target using ARIMA models]
     * [general_time_series_transformer.py](./transformers/timeseries/general_time_series_transformer.py) [Demonstrates the API for custom time-series transformers.]
     * [parallel_auto_arima_forecast.py](./transformers/timeseries/parallel_auto_arima_forecast.py) [Parallel Auto ARIMA transformer is a time series transformer that predicts target using ARIMA models.In this implementation, Time Group Models are fitted in parallel]
-    * [parallel_prophet_forecast.py](./transformers/timeseries/parallel_prophet_forecast.py) [Parallel FB Prophet transformer is a time series transformer that predicts target using FBProphet models.]
-    * [parallel_prophet_forecast_using_individual_groups.py](./transformers/timeseries/parallel_prophet_forecast_using_individual_groups.py) [Parallel FB Prophet transformer is a time series transformer that predicts target using FBProphet models.]
+    * [parallel_prophet_forecast.py](./transformers/timeseries/parallel_prophet_forecast.py) [Parallel FB Prophet transformer is a time series transformer that predicts target using FBProphet models.This transformer fits one FBProphet model per time group and therefore may take time. Before using this transformerwe suggest you check FBProphet prediction significance by running an experiment withparallel_prophet_forecast_using_individual_groups. Then enable parallel prophet forecast to get even better predictions.]
+    * [parallel_prophet_forecast_using_individual_groups.py](./transformers/timeseries/parallel_prophet_forecast_using_individual_groups.py) [Parallel FB Prophet transformer is a time series transformer that predicts target using FBProphet models.This transformer fits one model for each time group column values and is significantly fasterthan the implementation available in parallel_prophet_forecast.py.]
     * [serial_prophet_forecast.py](./transformers/timeseries/serial_prophet_forecast.py) [Transformer that uses FB Prophet for time series prediction.Please see the parallel implementation for more information]
     * [time_encoder_transformer.py](./transformers/timeseries/time_encoder_transformer.py) [converts the Time Column to an ordered integer]
     * [trading_volatility.py](./transformers/timeseries/trading_volatility.py) [Calculates Historical Volatility for numeric features (makes assumptions on the data)]
